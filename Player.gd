@@ -8,6 +8,7 @@ export (int) var gravity = 3000
 
 onready var target := position
 onready var sprite := $Sprite
+onready var bullet :=  preload("res://Bullet.tscn")
 
 var velocity := Vector2.ZERO
 var rotation_dir := 0
@@ -23,6 +24,10 @@ func get_side_input():
 		sprite.scale.x = -1 * abs(sprite.scale.x)
 	elif Input.get_action_strength("ui_accept"):
 		sprite.play("shoot")
+		var bulletNode := bullet.instance()
+		bulletNode.set_direction(-1)
+		bulletNode.position = global_position
+		owner.add_child(bulletNode)
 	else:
 		sprite.play("idle")
 		 

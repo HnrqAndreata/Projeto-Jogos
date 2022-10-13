@@ -32,7 +32,7 @@ animations = [ {
 "frames": [ ExtResource( 21 ), ExtResource( 20 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "jump",
-"speed": 2.0
+"speed": 0.1
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 12 ) ],
 "loop": true,
@@ -60,6 +60,7 @@ script = ExtResource( 13 )
 scale = Vector2( 2.063, 1.922 )
 frames = SubResource( 1 )
 animation = "jump"
+frame = 1
 playing = true
 offset = Vector2( 6, 3 )
 
