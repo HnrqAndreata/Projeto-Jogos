@@ -12,7 +12,7 @@
 [ext_resource path="res://Player/Run/Run_01.png" type="Texture" id=10]
 [ext_resource path="res://Player/Run/Run_02.png" type="Texture" id=11]
 [ext_resource path="res://Player/Run/Run_08.png" type="Texture" id=12]
-[ext_resource path="res://Player.gd" type="Script" id=13]
+[ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=13]
 [ext_resource path="res://Player/Shoot/Shoot_05.png" type="Texture" id=14]
 [ext_resource path="res://Player/Shoot/Shoot_04.png" type="Texture" id=15]
 [ext_resource path="res://Player/Shoot/Shoot_03.png" type="Texture" id=16]
@@ -60,8 +60,6 @@ script = ExtResource( 13 )
 scale = Vector2( 2.063, 1.922 )
 frames = SubResource( 1 )
 animation = "jump"
-frame = 1
-playing = true
 offset = Vector2( 6, 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

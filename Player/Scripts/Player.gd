@@ -1,17 +1,18 @@
 extends KinematicBody2D
 
 export (int) var speed = 100
-export (float) var rotation_speed = 4
+export (float) var rotation_speed = 4.0
 export (int) var jump_speed = 1000
 export (int) var gravity = 3000
+export (int) var xgun = 30
+export (int) var ygun = 30
 
 
-onready var target := position
 onready var sprite := $Sprite
 onready var bullet :=  preload("res://Bullet.tscn")
 
 var velocity := Vector2.ZERO
-var rotation_dir := 0
+var dir := 1
 
 func get_side_input():
 	velocity.x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
@@ -19,15 +20,18 @@ func get_side_input():
 	if velocity.x > 0:
 		sprite.play("right")
 		sprite.scale.x = abs(sprite.scale.x)
+		dir = 1
 	elif velocity.x < 0:
 		sprite.play("left")
 		sprite.scale.x = -1 * abs(sprite.scale.x)
+		dir = -1
 	elif Input.get_action_strength("ui_accept"):
 		sprite.play("shoot")
 		var bulletNode := bullet.instance()
-		bulletNode.set_direction(-1)
-		bulletNode.position = global_position
+		bulletNode.position.x = global_position.x + (xgun*dir)
+		bulletNode.position.y = global_position.y - ygun
 		owner.add_child(bulletNode)
+		bulletNode.set_direction(dir)
 	else:
 		sprite.play("idle")
 		 

@@ -10,14 +10,9 @@ onready var direction := 1
 
 func set_direction(dir):
 	direction = dir;
+	velocity.x  = speed * direction
 
-func _ready():
-	speed = speed * direction
-func get_input():
-	velocity.x = speed
-
-func _physics_process(delta):
-	get_input();
+func _physics_process(_delta):
 	var collide = move_and_collide(velocity)
 	if(collide):
 		queue_free()

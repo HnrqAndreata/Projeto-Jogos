@@ -1,13 +1,15 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Autotiling/Godot/GrassTile/tileset_GrassTile.tres" type="TileSet" id=1]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 
 [node name="Node" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 238, 95 )
 collision_layer = 2
+xgun = 40
+ygun = 12
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 2, 2 )
