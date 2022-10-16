@@ -6,7 +6,7 @@ export (int) var jump_speed = 1000
 export (int) var gravity = 3000
 export (int) var xgun = 30
 export (int) var ygun = 30
-
+export (float) var timer = 1.0
 
 onready var sprite := $Sprite
 onready var bullet :=  preload("res://Bullet.tscn")
@@ -27,11 +27,13 @@ func get_side_input():
 		dir = -1
 	elif Input.get_action_strength("ui_accept"):
 		sprite.play("shoot")
-		var bulletNode := bullet.instance()
-		bulletNode.position.x = global_position.x + (xgun*dir)
-		bulletNode.position.y = global_position.y - ygun
-		owner.add_child(bulletNode)
-		bulletNode.set_direction(dir)
+		if $Timer.time_left==0:
+			$Timer.start(timer)
+			var bulletNode := bullet.instance()
+			bulletNode.position.x = global_position.x + (xgun*dir)
+			bulletNode.position.y = global_position.y - ygun
+			owner.add_child(bulletNode)
+			bulletNode.set_direction(dir)
 	else:
 		sprite.play("idle")
 		 

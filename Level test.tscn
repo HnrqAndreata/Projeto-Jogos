@@ -10,6 +10,7 @@ position = Vector2( 238, 95 )
 collision_layer = 2
 xgun = 40
 ygun = 12
+timer = 0.35
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 2, 2 )
