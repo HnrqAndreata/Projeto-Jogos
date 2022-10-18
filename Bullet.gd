@@ -15,6 +15,14 @@ func set_direction(dir):
 func _physics_process(_delta):
 	var collide = move_and_collide(velocity)
 	if(collide):
+		#print(collide.collider.name)
+		if(collide.collider.name == "Enemy"):
+			print(collide.collider)
+			collide.collider.queue_free()
+			#ar enemy = get_node("Enemy")
+			#rint(enemy)
+			#f enemy != null:
+		#	enemy.die()   
 		queue_free()
 
 # Called when the node enters the scene tree for the first time.
