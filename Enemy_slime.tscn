@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://SlimeA.png" type="Texture" id=1]
-[ext_resource path="res://Enemy.gd" type="Script" id=2]
+[ext_resource path="res://Enemy_slime.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=19]
 flags = 4
@@ -96,10 +96,10 @@ animations = [ {
 "speed": 15.0
 } ]
 
-[sub_resource type="CircleShape2D" id=18]
-radius = 14.0
+[sub_resource type="RectangleShape2D" id=35]
+extents = Vector2( 14.3, 13.5 )
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy_slime" type="KinematicBody2D"]
 scale = Vector2( 5, 5 )
 collision_layer = 3
 collision_mask = 3
@@ -111,8 +111,8 @@ frames = SubResource( 17 )
 animation = "attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 2.2 )
-shape = SubResource( 18 )
+position = Vector2( 0.099999, 2.5 )
+shape = SubResource( 35 )
 
 [node name="Antiqueda" type="RayCast2D" parent="."]
 position = Vector2( -13, 0 )
