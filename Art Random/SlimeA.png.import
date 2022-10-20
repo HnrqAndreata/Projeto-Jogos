@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/you_died.jpg-78b49c9ba4717a4ebea337a19a2449f6.stex"
+path="res://.import/SlimeA.png-334e10998da82cdb11ef93ae171e4c7b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://you_died.jpg"
-dest_files=[ "res://.import/you_died.jpg-78b49c9ba4717a4ebea337a19a2449f6.stex" ]
+source_file="res://Art Random/SlimeA.png"
+dest_files=[ "res://.import/SlimeA.png-334e10998da82cdb11ef93ae171e4c7b.stex" ]
 
 [params]
 

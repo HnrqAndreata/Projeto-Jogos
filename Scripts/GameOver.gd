@@ -26,9 +26,9 @@ func get_input():
 		if(selected == $GUI/Quit):
 			get_tree().quit()
 		else:
-			get_tree().change_scene("res://Level1.tscn")
+			get_tree().change_scene("res://Scenes/Level1.tscn")
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	get_input()
 

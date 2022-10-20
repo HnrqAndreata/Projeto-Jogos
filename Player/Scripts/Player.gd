@@ -13,7 +13,7 @@ signal damaged(hp)
 signal killed()
 
 onready var sprite := $Sprite
-onready var bullet :=  preload("res://Bullet.tscn")
+onready var bullet :=  preload("res://Scenes/Bullet.tscn")
 onready var barrahp :=  $HP
 onready var hp = max_health setget _set_hp
 onready var invulnerabilidade = $Timer_sem_dano
@@ -78,8 +78,8 @@ func _physics_process(delta):
 		if("Enemy" in collide.collider.name):
 			damage(20)
 		if($HP.value == 0):
-			get_tree().change_scene("res://GameOver.tscn")
+			get_tree().change_scene("res://Scenes/GameOver.tscn")
 
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
-	get_tree().change_scene("res://GameOver.tscn")
+	get_tree().change_scene("res://Scenes/GameOver.tscn")
