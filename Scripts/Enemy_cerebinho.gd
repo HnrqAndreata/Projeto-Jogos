@@ -17,7 +17,7 @@ func _physics_process(delta):
 		scale.x = scale.x*-1
 		
 	velocity.y += 1
-	sprite.play("idle")
+	sprite.play("walk")
 	velocity.x = 50*direction
 	
 	move_and_slide(velocity, Vector2.UP)
