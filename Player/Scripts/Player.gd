@@ -78,8 +78,8 @@ func _physics_process(delta):
 		if("Enemy" in collide.collider.name):
 			damage(20)
 		if($HP.value == 0):
-			get_tree().change_scene("res://Scenes/GameOver.tscn")
+			get_tree().change_scene("res://Scenes/GameOver1.tscn")
 
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
-	get_tree().change_scene("res://Scenes/GameOver.tscn")
+	get_tree().change_scene("res://Scenes/GameOver1.tscn")

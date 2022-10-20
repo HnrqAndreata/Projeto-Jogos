@@ -5,23 +5,24 @@ extends Node
 # var a: int = 2
 # var b: String = "text"
 onready var selected := $GUI/Retry
+export (int) var speed = 5
 
 
 func _ready() -> void:
-	$GUI/Retry.add_color_override("font_color",Color(1,1,0,1))
-
+	$GUI/Retry.bbcode_text = "[wave amp=50 freq=5][color=#fff500]Retry[/color][/wave]"
+	
 
 func get_input():
 	var selection = Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down")
 	if(selection):
 		if(selected == $GUI/Quit):
 			selected = $GUI/Retry
-			$GUI/Retry.add_color_override("font_color",Color(1,1,0,1))
-			$GUI/Quit.add_color_override("font_color",Color(1,1,1,1))
+			$GUI/Retry.bbcode_text = "[wave amp=50 freq=5][color=#fff500]Retry[/color][/wave]"
+			$GUI/Quit.bbcode_text = "[color=#ffffff]Quit[/color]"
 		else:
 			selected = $GUI/Quit
-			$GUI/Quit.add_color_override("font_color",Color(1,1,0,1))
-			$GUI/Retry.add_color_override("font_color",Color(1,1,1,1))
+			$GUI/Retry.bbcode_text = "[color=#ffffff]Retry[/color]"
+			$GUI/Quit.bbcode_text = "[wave amp=50 freq=5][color=#fff500]Quit[/color][/wave]"
 	if(Input.is_action_just_pressed("ui_accept")):
 		if(selected == $GUI/Quit):
 			get_tree().quit()
