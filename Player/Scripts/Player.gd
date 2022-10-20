@@ -78,6 +78,8 @@ func _physics_process(delta):
 		if("Enemy" in collide.collider.name):
 			damage(20)
 		if($HP.value == 0):
-			$YouDied.visible = true
-			speed = 0
-			jump_speed = 0
+			get_tree().change_scene("res://GameOver.tscn")
+
+
+func _on_VisibilityNotifier2D_screen_exited() -> void:
+	get_tree().change_scene("res://GameOver.tscn")

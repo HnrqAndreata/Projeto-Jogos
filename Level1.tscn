@@ -10,7 +10,7 @@
 [node name="Level1" type="Node"]
 
 [node name="FundoVerde" type="Sprite" parent="."]
-position = Vector2( 511, 300.5 )
+position = Vector2( 510, 300.5 )
 scale = Vector2( 1.016, 1.202 )
 texture = ExtResource( 1 )
 
