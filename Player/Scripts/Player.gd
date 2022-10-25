@@ -30,7 +30,8 @@ func _set_hp(value):
 			kill()
 			emit_signal("killed")
 
-func damage(dano):
+func damage():
+	var dano = 20
 	if(invulnerabilidade.is_stopped()):
 		invulnerabilidade.start()
 		_set_hp(hp - dano)
@@ -74,9 +75,10 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	var collide = get_last_slide_collision()
-	if(collide):
-		if("Enemy" in collide.collider.name):
-			damage(20)
+	#if(collide):
+	if($Area2D.get_overlapping_areas().size() > 0):
+		print("achou")
+		damage()
 		if($HP.value == 0):
 			get_tree().change_scene("res://Scenes/GameOver1.tscn")
 

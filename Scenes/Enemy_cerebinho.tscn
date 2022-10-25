@@ -3,7 +3,6 @@
 [ext_resource path="res://Animations/Intellect Devourer/IntellectDevourerIdleSide.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Enemy_cerebinho.gd" type="Script" id=2]
 
-
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 1 )
