@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var velocity = Vector2()
 var direction = 1
+export (int) var dano = 15
 onready var sprite := $AnimatedSprite
 
 #func _ready():
