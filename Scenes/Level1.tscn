@@ -29,7 +29,6 @@ offset = Vector2( -437.992, 102.745 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
 position = Vector2( 37, 504 )
-collision_layer = 2
 xgun = 40
 ygun = 12
 timer = 0.35
