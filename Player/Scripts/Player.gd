@@ -14,6 +14,7 @@ export (int) var knockback_spd = 10000
 
 onready var sprite := $Sprite
 onready var bullet :=  preload("res://Scenes/Bullet.tscn")
+onready var hpBar := get_tree().get_root().get_node("Level1/CanvasLayer/Control")
 
 var velocity := Vector2.ZERO
 var dir := 1
@@ -21,6 +22,7 @@ var hit_dir :=1
 
 func damage(dano):
 	hp = hp - dano
+	hpBar.updateBar(hp)
 
 func get_side_input():
 	velocity.x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
@@ -66,9 +68,11 @@ func _physics_process(delta):
 		if(collided[0].get_owner().position.x>position.x):
 			#print("inimigo a direita")
 			velocity.x = -knockback_spd
+			velocity.y = -250
 		else:
 			#print("inimigo a esquerda")
 			velocity.x = knockback_spd
+			velocity.y = -250
 		velocity = move_and_slide(velocity, Vector2.UP)
 		if(hp<1):
 			get_tree().change_scene("res://Scenes/GameOver1.tscn")
