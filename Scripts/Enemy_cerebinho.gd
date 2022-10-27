@@ -12,6 +12,9 @@ onready var sprite := $AnimatedSprite
 #	else:
 #		$AnimatedSprite.scale.x = 2	
 
+func get_dano():
+	return dano
+
 func _physics_process(delta):
 	if is_on_wall() or not $Antiqueda.is_colliding() and is_on_floor():
 		direction = direction*-1

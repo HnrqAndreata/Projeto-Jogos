@@ -7,7 +7,9 @@ export (int) var gravity = 3000
 export (int) var xgun = 30
 export (int) var ygun = 30
 export (float) var timer = 1.0
+export (float) var timer_invencivel = 3.0
 export (int) var hp = 100
+export (int) var knockback_spd = 10000
 
 
 onready var sprite := $Sprite
@@ -15,6 +17,7 @@ onready var bullet :=  preload("res://Scenes/Bullet.tscn")
 
 var velocity := Vector2.ZERO
 var dir := 1
+var hit_dir :=1
 
 func damage(dano):
 	hp = hp - dano
@@ -52,14 +55,21 @@ func _physics_process(delta):
 	get_side_input()
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
-	var collide = get_last_slide_collision()
-	#if(collide):
 	var collided = $Area2D.get_overlapping_areas()
 	var dano = 20
-	if(collided.size() > 0 and $Timer.time_left==0):
-		$Timer.start(timer)
-		#dano = collided[0]
+	if(collided.size() > 0 and $Invencivel.time_left==0):
+		$Invencivel.start(timer)
+		dano = collided[0].get_owner().get_dano()
+		print(dano)
 		damage(dano)
+		#print(collided[0].get_owner().position.x)
+		if(collided[0].get_owner().position.x>position.x):
+			#print("inimigo a direita")
+			velocity.x = -knockback_spd
+		else:
+			#print("inimigo a esquerda")
+			velocity.x = knockback_spd
+		velocity = move_and_slide(velocity, Vector2.UP)
 		if(hp<1):
 			get_tree().change_scene("res://Scenes/GameOver1.tscn")
 
