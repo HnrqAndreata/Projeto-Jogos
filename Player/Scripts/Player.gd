@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-export (int) var speed = 150
+export (int) var speed = 200
 export (float) var rotation_speed = 4.0
-export (int) var jump_speed = 1000
-export (int) var gravity = 3000
+export (int) var jump_speed = 900
+export (int) var gravity = 1800
 export (int) var xgun = 30
 export (int) var ygun = 30
 export (float) var timer = 1.0
@@ -20,11 +20,13 @@ var velocity := Vector2.ZERO
 var dir := 1
 var hit_dir :=1
 
+
 func damage(dano):
 	hp = hp - dano
 	hpBar.updateBar(hp)
 
 func get_side_input():
+	speed = 200
 	velocity.x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
 	velocity.x *= speed
 	if velocity.x > 0:
@@ -50,32 +52,33 @@ func get_side_input():
 	if is_on_floor() and Input.is_action_just_pressed('ui_up'):
 		sprite.play("jump")
 		velocity.y = -jump_speed
-		
-#Dano so ta funcionando quando o player colide com o inimigo, nao quando o inimigo colide com o player
+		speed += 200		
+
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	get_side_input()
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	var collided = $Area2D.get_overlapping_areas()
-	var dano = 20
-	if(collided.size() > 0 and $Invencivel.time_left==0):
-		$Invencivel.start(timer)
-		dano = collided[0].get_owner().get_dano()
-		print(dano)
-		damage(dano)
-		#print(collided[0].get_owner().position.x)
-		if(collided[0].get_owner().position.x>position.x):
-			#print("inimigo a direita")
-			velocity.x = -knockback_spd
-			velocity.y = -250
-		else:
-			#print("inimigo a esquerda")
-			velocity.x = knockback_spd
-			velocity.y = -250
-		velocity = move_and_slide(velocity, Vector2.UP)
-		if(hp<1):
-			get_tree().change_scene("res://Scenes/GameOver1.tscn")
+	var dano = 20		
+	
+	if(position.y > 650):
+		get_tree().change_scene("res://Scenes/GameOver1.tscn")
 
-func _on_VisibilityNotifier2D_screen_exited() -> void:
-	get_tree().change_scene("res://Scenes/GameOver1.tscn")
+	elif(collided.size() > 0 and $Invencivel.time_left==0):
+		if(collided[0].get_name() == "Carro"):
+			get_tree().change_scene("res://Scenes/Fim.tscn")
+		else:
+			$Invencivel.start(timer)
+			dano = collided[0].get_owner().get_dano()
+			damage(dano)
+			if(collided[0].get_owner().position.x>position.x):
+				velocity.x = -knockback_spd
+				velocity.y = -250
+			else:
+				velocity.x = knockback_spd
+				velocity.y = -250
+			velocity = move_and_slide(velocity, Vector2.UP)
+			if(hp < 1):
+				get_tree().change_scene("res://Scenes/GameOver1.tscn")
+				
