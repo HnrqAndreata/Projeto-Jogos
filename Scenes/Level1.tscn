@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Enemy_zoinho.tscn" type="PackedScene" id=2]
@@ -248,6 +248,59 @@ points = PoolVector2Array( 0, 32, 96, 32, 96, 64, 0, 64 )
 } ]
 7/z_index = 0
 
+[sub_resource type="Animation" id=17]
+resource_name = "Blood Pumping"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.0196078, 0.0196078, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../ParallaxLayer2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../ParallaxLayer3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../TileMap:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="Level1" type="Node"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -261,7 +314,7 @@ format = 1
 tile_data = PoolIntArray( 327690, 0, 0, 327692, 5, 0, 327712, 4, 0, 393235, 3, 0, 393241, 2, 0, 393244, 4, 0, 458762, 1, 0, 458764, 6, 0, 458789, 0, 0, 458791, 5, 0, 458794, 0, 0, 458796, 0, 0, 458798, 0, 0, 458800, 0, 0, 524288, 0, 0, 524290, 0, 0, 524292, 0, 0, 524294, 0, 0, 524297, 0, 0, 524299, 0, 0, 524301, 0, 0, 524303, 0, 0, 524305, 0, 0, 589861, 1, 0, 589863, 6, 0 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
-position = Vector2( 37, 504 )
+position = Vector2( 44, 465 )
 xgun = 40
 ygun = 12
 timer = 0.35
@@ -350,3 +403,8 @@ motion_mirroring = Vector2( 900, 0 )
 position = Vector2( 485.232, 221.556 )
 scale = Vector2( 3.11594, 4.75696 )
 texture = ExtResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ParallaxBackground/ParallaxLayer")
+autoplay = "Blood Pumping"
+"anims/Blood Pumping" = SubResource( 17 )
