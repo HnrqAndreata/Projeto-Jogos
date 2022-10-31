@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Enemy_cerebinho.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Enemy_slime.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tileset/tileset.png" type="Texture" id=5]
-[ext_resource path="res://Carro.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Carro.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/HPHUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Art Random/middle.png" type="Texture" id=8]
 [ext_resource path="res://Art Random/back.png" type="Texture" id=9]
