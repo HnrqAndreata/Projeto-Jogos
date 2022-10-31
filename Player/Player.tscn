@@ -57,6 +57,7 @@ extents = Vector2( 11.625, 37.4688 )
 extents = Vector2( 16.5, 39 )
 
 [node name="Player" type="KinematicBody2D"]
+scale = Vector2( 1.25, 1.25 )
 collision_layer = 2
 collision_mask = 3
 script = ExtResource( 13 )
@@ -66,7 +67,9 @@ knockback_spd = 3000
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2.063, 1.922 )
 frames = SubResource( 1 )
-animation = "jump"
+animation = "idle"
+frame = 3
+playing = true
 offset = Vector2( 6, 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
