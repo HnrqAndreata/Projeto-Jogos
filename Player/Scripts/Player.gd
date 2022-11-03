@@ -50,7 +50,7 @@ func get_side_input():
 		sprite.play("idle")
 		 
 	if is_on_floor() and Input.is_action_just_pressed('ui_up'):
-		sprite.play("jump")
+		#sprite.play("jump")
 		velocity.y = -jump_speed
 		speed += 200		
 
