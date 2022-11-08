@@ -249,18 +249,17 @@ points = PoolVector2Array( 0, 32, 96, 32, 96, 64, 0, 64 )
 } ]
 7/z_index = 0
 
-[sub_resource type="Shader" id=16]
+[sub_resource type="Shader" id=15]
 
-[sub_resource type="ShaderMaterial" id=17]
-shader = SubResource( 16 )
+[sub_resource type="ShaderMaterial" id=16]
+shader = SubResource( 15 )
 
-[sub_resource type="Shader" id=19]
+[sub_resource type="Shader" id=17]
 
-[sub_resource type="ShaderMaterial" id=20]
-shader = SubResource( 19 )
+[sub_resource type="ShaderMaterial" id=18]
+shader = SubResource( 17 )
 
-[sub_resource type="Animation" id=15]
-resource_name = "Blood Pumping"
+[sub_resource type="Animation" id=19]
 length = 10.0
 loop = true
 tracks/0/type = "value"
@@ -312,8 +311,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=18]
-resource_name = "Hitmarker"
+[sub_resource type="Animation" id=20]
 
 [node name="Level1" type="Node"]
 
@@ -325,7 +323,7 @@ cell_quadrant_size = 32
 collision_layer = 3
 collision_mask = 3
 format = 1
-tile_data = PoolIntArray( 327690, 0, 0, 327692, 5, 0, 327712, 4, 0, 393235, 3, 0, 393241, 2, 0, 393244, 4, 0, 458762, 1, 0, 458764, 6, 0, 458789, 0, 0, 458791, 5, 0, 458794, 0, 0, 458796, 0, 0, 458798, 0, 0, 458800, 0, 0, 524288, 0, 0, 524290, 0, 0, 524292, 0, 0, 524294, 0, 0, 524297, 0, 0, 524299, 0, 0, 524301, 0, 0, 524303, 0, 0, 524305, 0, 0, 589861, 1, 0, 589863, 6, 0 )
+tile_data = PoolIntArray( 262208, 4, 0, 262213, 4, 0, 262218, 4, 0, 327690, 0, 0, 327692, 5, 0, 327712, 4, 0, 393235, 3, 0, 393241, 2, 0, 393244, 4, 0, 393265, 2, 0, 393267, 2, 0, 393269, 2, 0, 393302, 2, 0, 393304, 2, 0, 393306, 2, 0, 458762, 1, 0, 458764, 6, 0, 458789, 0, 0, 458791, 5, 0, 458794, 0, 0, 458796, 0, 0, 458798, 0, 0, 458799, 7, 0, 458807, 7, 0, 458809, 7, 0, 458810, 0, 0, 458812, 5, 0, 458814, 5, 0, 458816, 5, 0, 458818, 5, 0, 458820, 5, 0, 458822, 5, 0, 458824, 5, 0, 458826, 5, 0, 458828, 5, 0, 458830, 5, 0, 458832, 5, 0, 458834, 5, 0, 458836, 5, 0, 524288, 0, 0, 524290, 0, 0, 524292, 0, 0, 524294, 0, 0, 524297, 0, 0, 524299, 0, 0, 524301, 0, 0, 524303, 0, 0, 524305, 0, 0, 589861, 1, 0, 589863, 6, 0, 589882, 1, 0, 589884, 6, 0 )
 
 [node name="Player" parent="." groups=[
 "Player",
@@ -380,7 +378,7 @@ position = Vector2( 668, 340 )
 scale = Vector2( 5, 5 )
 
 [node name="Carro" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2685, 441 )
+position = Vector2( 5757.53, 357.095 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -392,7 +390,7 @@ margin_bottom = -547.0
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-material = SubResource( 17 )
+material = SubResource( 16 )
 motion_scale = Vector2( 0, 1 )
 motion_mirroring = Vector2( 330, 0 )
 
@@ -407,7 +405,7 @@ scale = Vector2( 3.70052, 3.70833 )
 texture = ExtResource( 9 )
 
 [node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-material = SubResource( 20 )
+material = SubResource( 18 )
 position = Vector2( 179.375, 5.66705 )
 scale = Vector2( -3.701, -3.708 )
 texture = ExtResource( 11 )
@@ -454,5 +452,5 @@ texture = ExtResource( 10 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../ParallaxBackground/ParallaxLayer")
 autoplay = "Blood Pumping"
-"anims/Blood Pumping" = SubResource( 15 )
-anims/Hitmarker = SubResource( 18 )
+"anims/Blood Pumping" = SubResource( 19 )
+anims/Hitmarker = SubResource( 20 )

@@ -14,6 +14,9 @@ func rec_dmg():
 	hp = hp - 1
 	if(hp < 1):
 		self.queue_free()
+		
+func attack():
+	pass
 
 func _physics_process(delta):
 	if (is_on_wall() or not get_node("VisibilityNotifier2D").is_on_screen()):
