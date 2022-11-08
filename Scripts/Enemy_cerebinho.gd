@@ -4,6 +4,7 @@ var velocity = Vector2()
 var direction = 1
 export (int) var dano = 15
 onready var sprite := $AnimatedSprite
+onready var hp := 3
 
 #func _ready():
 #	if direction == 1:
@@ -11,6 +12,12 @@ onready var sprite := $AnimatedSprite
 #		$AnimatedSprite.scale.x = -2
 #	else:
 #		$AnimatedSprite.scale.x = 2	
+
+func rec_dmg():
+	$AnimationPlayer.play("HitAnim")
+	hp = hp - 1
+	if(hp < 1):
+		self.queue_free()
 
 func get_dano():
 	return dano

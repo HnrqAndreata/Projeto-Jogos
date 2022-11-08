@@ -20,6 +20,8 @@ var velocity := Vector2.ZERO
 var dir := 1
 var hit_dir :=1
 
+func _ready():
+	$Timer.start(timer)
 
 func damage(dano):
 	hp = hp - dano

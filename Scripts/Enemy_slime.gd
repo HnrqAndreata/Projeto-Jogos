@@ -4,18 +4,18 @@ var velocity = Vector2()
 var direction = -1
 onready var sprite := $Sprite
 export (int) var dano = 30
-onready var tween := $Tween
 onready var hp := 5
 
 func get_dano():
 	return dano
 	
-func anim_hit():
-	tween.interpolate_property(self, "modulate", Color(1, 1, 1), Color(1, 1, 1, 0.498039), 1.0)
-	tween.interpolate_property(self, "modulate", Color(1, 1, 1, 0.498039), Color(1, 1, 1), Tween.TRANS_LINEAR, Tween.EASE_IN, 1.0)
+func rec_dmg():
+	$AnimationPlayer.play("HitAnim")
 	hp = hp - 1
+	if(hp < 1):
+		self.queue_free()
+	
 func _ready():
-	tween.start()
 	if direction == 1:
 		$Sprite.flip.h = true
 		$Sprite.scale.x = -2

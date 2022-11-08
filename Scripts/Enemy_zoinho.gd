@@ -4,11 +4,16 @@ var velocity = Vector2()
 var direction = 1
 onready var sprite := $AnimatedSprite
 export (int) var dano = 10
+onready var hp := 2
 
 func get_dano():
 	return dano
 
-
+func rec_dmg():
+	$AnimationPlayer.play("HitAnim")
+	hp = hp - 1
+	if(hp < 1):
+		self.queue_free()
 
 func _physics_process(delta):
 	if (is_on_wall() or not get_node("VisibilityNotifier2D").is_on_screen()):

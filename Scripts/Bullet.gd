@@ -15,6 +15,6 @@ func _physics_process(_delta):
 		if("Enemy" in collide.collider.name):
 		#if(collide.collider.body.is_in_group("Enemy")):
 			print(collide.collider)
-			collide.collider.call("anim_hit")
+			collide.collider.rec_dmg()
  
 		queue_free()
