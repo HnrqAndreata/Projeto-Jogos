@@ -24,16 +24,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "left",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "right",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "idle",
@@ -43,6 +33,16 @@ animations = [ {
 "loop": true,
 "name": "jump",
 "speed": 0.1
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "left",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "right",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 18 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 14 ) ],
 "loop": true,
@@ -58,7 +58,7 @@ extents = Vector2( 16.5, 39 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 139
 script = ExtResource( 13 )
 hp = 10000
 knockback_spd = 3000
@@ -88,5 +88,3 @@ scale = Vector2( 1.2, 3.85 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -2.5, -2 )
 shape = SubResource( 3 )
-
-[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
