@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Start.gd" type="Script" id=1]
-[ext_resource path="res://Art Random/Black_flag.svg.png" type="Texture" id=2]
+[ext_resource path="res://Background/level1/Black_flag.svg.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/Retro Gaming.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]

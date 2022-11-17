@@ -7,10 +7,10 @@
 [ext_resource path="res://Tileset/tileset.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Carro.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/HPHUD.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Art Random/middle.png" type="Texture" id=8]
-[ext_resource path="res://Art Random/back.png" type="Texture" id=9]
-[ext_resource path="res://Art Random/front.png" type="Texture" id=10]
-[ext_resource path="res://Art Random/back2.png" type="Texture" id=11]
+[ext_resource path="res://Background/level1/middle.png" type="Texture" id=8]
+[ext_resource path="res://Background/level1/back.png" type="Texture" id=9]
+[ext_resource path="res://Background/level1/front.png" type="Texture" id=10]
+[ext_resource path="res://Background/level1/back2.png" type="Texture" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 32, 64, 32, 64, 64, 0, 64 )
@@ -249,15 +249,15 @@ points = PoolVector2Array( 0, 32, 96, 32, 96, 64, 0, 64 )
 } ]
 7/z_index = 0
 
-[sub_resource type="Shader" id=15]
+[sub_resource type="Shader" id=21]
 
 [sub_resource type="ShaderMaterial" id=16]
-shader = SubResource( 15 )
+shader = SubResource( 21 )
 
-[sub_resource type="Shader" id=17]
+[sub_resource type="Shader" id=22]
 
 [sub_resource type="ShaderMaterial" id=18]
-shader = SubResource( 17 )
+shader = SubResource( 22 )
 
 [sub_resource type="Animation" id=19]
 length = 10.0

@@ -62,14 +62,14 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	var collided = $Area2D.get_overlapping_areas()
-	var dano = 20		
+	var dano = 20
 	
 	if(position.y > 650):
 		get_tree().change_scene("res://Scenes/GameOver1.tscn")
 
 	elif(collided.size() > 0 and $Invencivel.time_left==0):
 		if(collided[0].get_name() == "Carro"):
-			get_tree().change_scene("res://Scenes/Fim.tscn")
+			get_tree().change_scene("res://Scenes/Level2.tscn")
 		else:
 			$Invencivel.start(timer)
 			dano = collided[0].get_owner().get_dano()

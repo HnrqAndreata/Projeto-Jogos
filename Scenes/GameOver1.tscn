@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Art Random/you_died.jpg" type="Texture" id=1]
+[ext_resource path="res://Background/level1/you_died.jpg" type="Texture" id=1]
 [ext_resource path="res://Scripts/GameOver.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/Retro Gaming.ttf" type="DynamicFontData" id=3]
 
