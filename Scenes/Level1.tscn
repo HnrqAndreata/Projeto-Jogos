@@ -326,8 +326,8 @@ format = 1
 tile_data = PoolIntArray( 262208, 4, 0, 262213, 4, 0, 262218, 4, 0, 327690, 0, 0, 327692, 5, 0, 327712, 4, 0, 393235, 3, 0, 393241, 2, 0, 393244, 4, 0, 393265, 2, 0, 393267, 2, 0, 393269, 2, 0, 393302, 2, 0, 393304, 2, 0, 393306, 2, 0, 458762, 1, 0, 458764, 6, 0, 458789, 0, 0, 458791, 5, 0, 458794, 0, 0, 458796, 0, 0, 458798, 0, 0, 458799, 7, 0, 458807, 7, 0, 458809, 7, 0, 458810, 0, 0, 458812, 5, 0, 458814, 5, 0, 458816, 5, 0, 458818, 5, 0, 458820, 5, 0, 458822, 5, 0, 458824, 5, 0, 458826, 5, 0, 458828, 5, 0, 458830, 5, 0, 458832, 5, 0, 458834, 5, 0, 458836, 5, 0, 524288, 0, 0, 524290, 0, 0, 524292, 0, 0, 524294, 0, 0, 524297, 0, 0, 524299, 0, 0, 524301, 0, 0, 524303, 0, 0, 524305, 0, 0, 589861, 1, 0, 589863, 6, 0, 589882, 1, 0, 589884, 6, 0 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
-position = Vector2( 44, 465 )
-collision_layer = 130
+position = Vector2( 764, 508 )
+collision_layer = 2186
 xgun = 40
 ygun = 12
 timer = 0.35
@@ -350,13 +350,27 @@ drag_margin_bottom = 0.5
 [node name="Enemy" parent="." groups=["Enemy"] instance=ExtResource( 4 )]
 position = Vector2( 1386, 361 )
 
+[node name="Enemy2" parent="." groups=["Enemy"] instance=ExtResource( 4 )]
+position = Vector2( 4686, 400 )
+
 [node name="Enemy_zoinho" parent="." groups=["Enemy"] instance=ExtResource( 2 )]
 position = Vector2( 2301, 320 )
 scale = Vector2( 3, 3 )
 
 [node name="Enemy_zoinho2" parent="." groups=["Enemy"] instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 2053, 403 )
+scale = Vector2( 3, 3 )
+
+[node name="Enemy_zoinho3" parent="." groups=["Enemy"] instance=ExtResource( 2 )]
+position = Vector2( 4235, 163 )
+scale = Vector2( 3, 3 )
+
+[node name="Enemy_zoinho4" parent="." groups=["Enemy"] instance=ExtResource( 2 )]
+position = Vector2( 4941, 232 )
+scale = Vector2( 3, 3 )
+
+[node name="Enemy_zoinho5" parent="." groups=["Enemy"] instance=ExtResource( 2 )]
+position = Vector2( 5317, 332 )
 scale = Vector2( 3, 3 )
 
 [node name="Enemy5" parent="." groups=["Enemy"] instance=ExtResource( 3 )]

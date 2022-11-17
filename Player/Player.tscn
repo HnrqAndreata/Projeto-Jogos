@@ -57,8 +57,8 @@ extents = Vector2( 11.625, 37.4688 )
 extents = Vector2( 16.5, 39 )
 
 [node name="Player" type="KinematicBody2D"]
-collision_layer = 2
-collision_mask = 139
+collision_layer = 2050
+collision_mask = 2187
 script = ExtResource( 13 )
 hp = 10000
 knockback_spd = 3000
@@ -84,6 +84,8 @@ position = Vector2( -2, -0.499999 )
 scale = Vector2( 1.2, 3.85 )
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2049
+collision_mask = 2049
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -2.5, -2 )

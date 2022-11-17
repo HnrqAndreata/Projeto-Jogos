@@ -21,15 +21,17 @@ func rec_dmg():
 		self.queue_free()
 		
 func attack():
-	var vec_to_player = (player.position - position).normalized()
-	var bulletNode := bullet.instance()
-	owner.add_child(bulletNode)
-	bulletNode.set_vec(vec_to_player, vec_to_player.angle())
-	$Timer.start(1.0)
+	if $Timer.time_left<0.5 and get_node("VisibilityNotifier2D").is_on_screen():
+		$Timer.start(3.0)
+		var vec_to_player = (player.position - position).normalized()
+		var bulletNode := bullet.instance()
+		bulletNode.position.x = global_position.x - 30
+		bulletNode.position.y = global_position.y
+		bulletNode.set_vec(vec_to_player, vec_to_player.angle())
+		owner.add_child(bulletNode)
+	
 
 func _physics_process(delta):
-	#if $Timer.time_left==0:
-		#print("timer ended")
 	attack()
 	if (is_on_wall() or not get_node("VisibilityNotifier2D").is_on_screen()):
 		direction = direction*-1
@@ -41,3 +43,7 @@ func _physics_process(delta):
 	
 	move_and_slide(velocity, Vector2.UP)
 	
+
+
+func _on_VisibilityNotifier2D2_screen_entered() -> void:
+	pass # Replace with function body.

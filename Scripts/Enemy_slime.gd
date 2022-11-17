@@ -7,6 +7,7 @@ export (int) var dano = 30
 onready var hp := 5
 
 func get_dano():
+	sprite.play("attack")
 	return dano
 	
 func rec_dmg():
@@ -27,7 +28,6 @@ func _physics_process(delta):
 	if is_on_wall() or not $Antiqueda.is_colliding() and is_on_floor():
 		direction = direction*-1
 		scale.x = scale.x*-1
-		
 	velocity.y += 1
 	sprite.play("idle")
 	velocity.x = 50*direction
