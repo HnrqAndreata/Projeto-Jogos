@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Enemy_zoinho.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Background/level1/back.png" type="Texture" id=9]
 [ext_resource path="res://Background/level1/front.png" type="Texture" id=10]
 [ext_resource path="res://Background/level1/back2.png" type="Texture" id=11]
+[ext_resource path="res://SFX/LVL1.ogg" type="AudioStream" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 32, 64, 32, 64, 64, 0, 64 )
@@ -323,12 +324,10 @@ cell_quadrant_size = 32
 collision_layer = 3
 collision_mask = 3
 format = 1
-tile_data = PoolIntArray( 262208, 4, 0, 262213, 4, 0, 262218, 4, 0, 327690, 0, 0, 327692, 5, 0, 327712, 4, 0, 393235, 3, 0, 393241, 2, 0, 393244, 4, 0, 393265, 2, 0, 393267, 2, 0, 393269, 2, 0, 393302, 2, 0, 393304, 2, 0, 393306, 2, 0, 458762, 1, 0, 458764, 6, 0, 458789, 0, 0, 458791, 5, 0, 458794, 0, 0, 458796, 0, 0, 458798, 0, 0, 458799, 7, 0, 458807, 7, 0, 458809, 7, 0, 458810, 0, 0, 458812, 5, 0, 458814, 5, 0, 458816, 5, 0, 458818, 5, 0, 458820, 5, 0, 458822, 5, 0, 458824, 5, 0, 458826, 5, 0, 458828, 5, 0, 458830, 5, 0, 458832, 5, 0, 458834, 5, 0, 458836, 5, 0, 524288, 0, 0, 524290, 0, 0, 524292, 0, 0, 524294, 0, 0, 524297, 0, 0, 524299, 0, 0, 524301, 0, 0, 524303, 0, 0, 524305, 0, 0, 589861, 1, 0, 589863, 6, 0, 589882, 1, 0, 589884, 6, 0 )
+tile_data = PoolIntArray( 262208, 4, 0, 262213, 4, 0, 262218, 4, 0, 327690, 0, 0, 327692, 5, 0, 327712, 4, 0, 327770, 4, 0, 393235, 3, 0, 393241, 2, 0, 393244, 4, 0, 393265, 2, 0, 393267, 2, 0, 393269, 2, 0, 393303, 4, 0, 458762, 1, 0, 458764, 6, 0, 458789, 0, 0, 458791, 5, 0, 458794, 0, 0, 458796, 0, 0, 458798, 0, 0, 458799, 7, 0, 458807, 7, 0, 458809, 7, 0, 458810, 0, 0, 458812, 5, 0, 458814, 5, 0, 458816, 5, 0, 458818, 5, 0, 458820, 5, 0, 458822, 5, 0, 458824, 5, 0, 458826, 5, 0, 458828, 5, 0, 458830, 5, 0, 458832, 5, 0, 458834, 5, 0, 458836, 5, 0, 458837, 7, 0, 458845, 5, 0, 458847, 5, 0, 458849, 5, 0, 524288, 0, 0, 524290, 0, 0, 524292, 0, 0, 524294, 0, 0, 524297, 0, 0, 524299, 0, 0, 524301, 0, 0, 524303, 0, 0, 524305, 0, 0, 589861, 1, 0, 589863, 6, 0, 589882, 1, 0, 589884, 6, 0 )
 
-[node name="Player" parent="." groups=[
-"Player",
-] instance=ExtResource( 1 )]
-position = Vector2( 764, 508 )
+[node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
+position = Vector2( 50, 508 )
 collision_layer = 2186
 xgun = 40
 ygun = 12
@@ -340,7 +339,7 @@ position = Vector2( 477, -202 )
 current = true
 limit_left = 0
 limit_top = 0
-limit_right = 5800
+limit_right = 10000
 limit_bottom = 354
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
@@ -349,60 +348,66 @@ drag_margin_top = 1.0
 drag_margin_right = 0.5
 drag_margin_bottom = 0.5
 
-[node name="Enemy" parent="." groups=[
-"Enemy",
-] instance=ExtResource( 4 )]
+[node name="Enemy" parent="." groups=["Enemy"] instance=ExtResource( 4 )]
 position = Vector2( 1386, 361 )
 
-[node name="Enemy2" parent="." groups=[
-"Enemy",
-] instance=ExtResource( 4 )]
+[node name="Enemy2" parent="." groups=["Enemy"] instance=ExtResource( 4 )]
 position = Vector2( 4686, 400 )
 
-[node name="Enemy_zoinho" parent="." groups=[
-"Enemy",
-] instance=ExtResource( 2 )]
-position = Vector2( 2301, 320 )
+[node name="Enemy_zoinho" parent="." groups=["Enemy"] instance=ExtResource( 2 )]
+position = Vector2( 2467, 331 )
 scale = Vector2( 3, 3 )
 
-[node name="Enemy_zoinho2" parent="." groups=[
-"Enemy",
-] instance=ExtResource( 2 )]
+[node name="Enemy_zoinho7" parent="." groups=["Enemy"] instance=ExtResource( 2 )]
+position = Vector2( 815.685, 237 )
+scale = Vector2( 3, 3 )
+
+[node name="Enemy_zoinho6" parent="." groups=["Enemy"] instance=ExtResource( 2 )]
+position = Vector2( 2818, 437 )
+scale = Vector2( 3, 3 )
+
+[node name="Enemy_zoinho2" parent="." groups=["Enemy"] instance=ExtResource( 2 )]
 position = Vector2( 2053, 403 )
 scale = Vector2( 3, 3 )
 
-[node name="Enemy_zoinho3" parent="." groups=[
-"Enemy",
-] instance=ExtResource( 2 )]
-position = Vector2( 4235, 163 )
+[node name="Enemy_zoinho3" parent="." groups=["Enemy"] instance=ExtResource( 2 )]
+position = Vector2( 4567, 261 )
 scale = Vector2( 3, 3 )
 
-[node name="Enemy_zoinho4" parent="." groups=[
-"Enemy",
-] instance=ExtResource( 2 )]
-position = Vector2( 4941, 232 )
+[node name="Enemy_zoinho4" parent="." groups=["Enemy"] instance=ExtResource( 2 )]
+position = Vector2( 4891, 134 )
 scale = Vector2( 3, 3 )
 
-[node name="Enemy_zoinho5" parent="." groups=[
-"Enemy",
-] instance=ExtResource( 2 )]
-position = Vector2( 5317, 332 )
+[node name="Enemy_zoinho5" parent="." groups=["Enemy"] instance=ExtResource( 2 )]
+position = Vector2( 5456, 308 )
 scale = Vector2( 3, 3 )
 
-[node name="Enemy5" parent="." groups=[
-"Enemy",
-] instance=ExtResource( 3 )]
+[node name="Enemy5" parent="." groups=["Enemy"] instance=ExtResource( 3 )]
 position = Vector2( 425, 491 )
 scale = Vector2( 5, 5 )
 
-[node name="Enemy6" parent="." groups=[
-"Enemy",
-] instance=ExtResource( 3 )]
+[node name="Enemy6" parent="." groups=["Enemy"] instance=ExtResource( 3 )]
 position = Vector2( 668, 340 )
 scale = Vector2( 5, 5 )
 
+[node name="Enemy7" parent="." groups=["Enemy"] instance=ExtResource( 3 )]
+position = Vector2( 2632.18, 441 )
+scale = Vector2( 5, 5 )
+
+[node name="Enemy8" parent="." groups=["Enemy"] instance=ExtResource( 3 )]
+position = Vector2( 2978.18, 441 )
+scale = Vector2( 5, 5 )
+
+[node name="Enemy9" parent="." groups=["Enemy"] instance=ExtResource( 3 )]
+position = Vector2( 4006, 430 )
+scale = Vector2( 5, 5 )
+
+[node name="Enemy10" parent="." groups=["Enemy"] instance=ExtResource( 3 )]
+position = Vector2( 5199, 454 )
+scale = Vector2( 5, 5 )
+
 [node name="Carro" parent="." instance=ExtResource( 6 )]
-position = Vector2( 5755, 275 )
+position = Vector2( 6262, 406 )
 scale = Vector2( 0.8, 0.8 )
 collision_layer = 128
 
@@ -479,3 +484,9 @@ root_node = NodePath("../ParallaxBackground/ParallaxLayer")
 autoplay = "Blood Pumping"
 "anims/Blood Pumping" = SubResource( 19 )
 anims/Hitmarker = SubResource( 20 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+volume_db = -5.0
+autoplay = true
+max_distance = 1e+08

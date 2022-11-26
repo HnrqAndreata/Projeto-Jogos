@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/LVL2.ogg-265828945fd406ee472732942b685024.oggstr"
+
+[deps]
+
+source_file="res://SFX/LVL2.ogg"
+dest_files=[ "res://.import/LVL2.ogg-265828945fd406ee472732942b685024.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

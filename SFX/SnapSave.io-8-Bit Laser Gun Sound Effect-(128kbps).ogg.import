@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SnapSave.io-8-Bit Laser Gun Sound Effect-(128kbps).ogg-03d48a0fa22ca16f0af599489d9f5d2e.oggstr"
+
+[deps]
+
+source_file="res://SFX/SnapSave.io-8-Bit Laser Gun Sound Effect-(128kbps).ogg"
+dest_files=[ "res://.import/SnapSave.io-8-Bit Laser Gun Sound Effect-(128kbps).ogg-03d48a0fa22ca16f0af599489d9f5d2e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

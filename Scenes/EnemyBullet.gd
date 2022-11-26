@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 onready var velocity := Vector2()
-onready var speed := 3
+onready var speed := 5
 onready var vec_to_player
 onready var angle
 export (int) var dano = 10

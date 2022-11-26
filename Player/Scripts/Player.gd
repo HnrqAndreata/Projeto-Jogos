@@ -3,7 +3,7 @@ extends KinematicBody2D
 export (int) var speed = 200
 export (float) var rotation_speed = 4.0
 export (int) var jump_speed = 900
-export (int) var gravity = 1800
+export (int) var gravity = 2000
 export (int) var xgun = 30
 export (int) var ygun = 30
 export (float) var timer = 1.0
@@ -15,6 +15,7 @@ export (int) var knockback_spd = 10000
 onready var sprite := $Sprite
 onready var bullet :=  preload("res://Scenes/Bullet.tscn")
 onready var hpBar := get_tree().get_root().get_node("Level1/CanvasLayer/Control")
+onready var gunShotSFX: AudioStream = preload("res://SFX/GunShotSFX.ogg") 
 
 var velocity := Vector2.ZERO
 var dir := 1
@@ -48,6 +49,7 @@ func get_side_input():
 			bulletNode.position.y = global_position.y - ygun
 			owner.add_child(bulletNode)
 			bulletNode.set_direction(dir)
+			$AudioStreamPlayer2D.playAudio(0)
 	else:
 		sprite.play("idle")
 		 
