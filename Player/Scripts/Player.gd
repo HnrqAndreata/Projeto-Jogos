@@ -13,9 +13,12 @@ export (int) var knockback_spd = 10000
 
 
 onready var sprite := $Sprite
+onready var fase := get_parent().get_name()
 onready var bullet :=  preload("res://Scenes/Bullet.tscn")
+
+onready var hpBar := get_tree().get_root().get_node(get_parent().name+"/CanvasLayer/Control")
 onready var bullet2 :=  preload("res://Scenes/BigBullet.tscn")
-onready var hpBar := get_tree().get_root().get_node("Level1/CanvasLayer/Control")
+
 onready var gunShotSFX: AudioStream = preload("res://SFX/GunShotSFX.ogg") 
 onready var selectedGun:= 0
 
@@ -93,6 +96,8 @@ func _physics_process(delta):
 	elif(collided.size() > 0 and $Invencivel.time_left==0):
 		if(collided[0].get_name() == "Carro"):
 			get_tree().change_scene("res://Scenes/Level2.tscn")
+		elif(collided[0].get_name() == "Barco"):
+			get_tree().change_scene("res://Scenes/Start.tscn")
 		else:
 			$Invencivel.start(timer)
 			dano = collided[0].get_owner().get_dano()
