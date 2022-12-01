@@ -13,8 +13,9 @@ export (int) var knockback_spd = 10000
 
 
 onready var sprite := $Sprite
+onready var fase := get_parent().get_name()
 onready var bullet :=  preload("res://Scenes/Bullet.tscn")
-onready var hpBar := get_tree().get_root().get_node("Level1/CanvasLayer/Control")
+onready var hpBar := get_tree().get_root().get_node(get_parent().name+"/CanvasLayer/Control")
 onready var gunShotSFX: AudioStream = preload("res://SFX/GunShotSFX.ogg") 
 
 var velocity := Vector2.ZERO
