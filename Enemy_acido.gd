@@ -14,9 +14,8 @@ func get_dano():
 func _ready() -> void:
 	$Timer.start(2.0)
 
-func rec_dmg():
-	$AnimationPlayer.play("HitAnim")
-	hp = hp - 1
+func rec_dmg(val):
+	hp = hp - val
 	if(hp < 1):
 		self.queue_free()
 		

@@ -96,6 +96,8 @@ func _physics_process(delta):
 	elif(collided.size() > 0 and $Invencivel.time_left==0):
 		if(collided[0].get_name() == "Carro"):
 			get_tree().change_scene("res://Scenes/Level2.tscn")
+		elif(collided[0].get_name() == "Barco"):
+			get_tree().change_scene("res://Scenes/Start.tscn")
 		else:
 			$Invencivel.start(timer)
 			dano = collided[0].get_owner().get_dano()
