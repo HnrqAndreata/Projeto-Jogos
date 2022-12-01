@@ -4,7 +4,7 @@ var velocity = Vector2()
 var direction = 1
 export (int) var dano = 15
 onready var sprite := $AnimatedSprite
-onready var hp := 3
+onready var hp := 6
 
 	
 
