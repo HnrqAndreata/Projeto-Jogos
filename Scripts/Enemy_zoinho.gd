@@ -14,9 +14,9 @@ func get_dano():
 func _ready() -> void:
 	$Timer.start(1.0)
 
-func rec_dmg():
+func rec_dmg(val):
 	$AnimationPlayer.play("HitAnim")
-	hp = hp - 1
+	hp = hp - val
 	if(hp < 1):
 		self.queue_free()
 		
@@ -29,6 +29,7 @@ func attack():
 		bulletNode.position.y = global_position.y
 		bulletNode.set_vec(vec_to_player, vec_to_player.angle())
 		owner.add_child(bulletNode)
+		$AudioStreamPlayer.play()
 	
 
 func _physics_process(delta):

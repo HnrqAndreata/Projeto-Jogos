@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Animations/Ocular Watcher/OcularWatcherIdleSide.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Enemy_zoinho.gd" type="Script" id=2]
+[ext_resource path="res://SFX/enemyfire.ogg" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.0
@@ -74,5 +75,8 @@ anims/HitAnim = SubResource( 7 )
 [node name="Timer" type="Timer" parent="."]
 
 [node name="VisibilityNotifier2D2" type="VisibilityNotifier2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="screen_entered" from="VisibilityNotifier2D2" to="." method="_on_VisibilityNotifier2D2_screen_entered"]

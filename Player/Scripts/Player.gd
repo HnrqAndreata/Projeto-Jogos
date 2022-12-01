@@ -14,8 +14,10 @@ export (int) var knockback_spd = 10000
 
 onready var sprite := $Sprite
 onready var bullet :=  preload("res://Scenes/Bullet.tscn")
+onready var bullet2 :=  preload("res://Scenes/BigBullet.tscn")
 onready var hpBar := get_tree().get_root().get_node("Level1/CanvasLayer/Control")
 onready var gunShotSFX: AudioStream = preload("res://SFX/GunShotSFX.ogg") 
+onready var selectedGun:= 0
 
 var velocity := Vector2.ZERO
 var dir := 1
@@ -41,22 +43,41 @@ func get_side_input():
 		sprite.scale.x = -1 * abs(sprite.scale.x)
 		dir = -1
 	elif Input.get_action_strength("ui_accept"):
-		sprite.play("shoot")
-		if $Timer.time_left==0:
-			$Timer.start(timer)
-			var bulletNode := bullet.instance()
-			bulletNode.position.x = global_position.x + (xgun*dir)
-			bulletNode.position.y = global_position.y - ygun
-			owner.add_child(bulletNode)
-			bulletNode.set_direction(dir)
-			$AudioStreamPlayer2D.playAudio(0)
+		if selectedGun == 0:
+			if $Timer.time_left==0:
+				sprite.play("shoot")
+				$Timer.start(timer)
+				var bulletNode := bullet.instance()
+				bulletNode.position.x = global_position.x + (xgun*dir)
+				bulletNode.position.y = global_position.y - ygun
+				owner.add_child(bulletNode)
+				bulletNode.set_direction(dir)
+				$AudioStreamPlayer2D.playAudio(0)
+		elif selectedGun == 1:
+			if $Timer.time_left==0:
+				sprite.play("shoot2")
+				$Timer.start(timer+1)
+				var bulletNode := bullet2.instance()
+				bulletNode.position.x = global_position.x + (xgun*dir)
+				bulletNode.position.y = global_position.y - ygun
+				owner.add_child(bulletNode)
+				bulletNode.set_direction(dir)
+				$AudioStreamPlayer2D.playAudio(1)
 	else:
 		sprite.play("idle")
 		 
 	if is_on_floor() and Input.is_action_just_pressed('ui_up'):
 		#sprite.play("jump")
 		velocity.y = -jump_speed
-		speed += 200		
+		speed += 20
+	if Input.get_action_strength("change") and selectedGun == 1 and $Timer2.time_left==0:
+		selectedGun = 0
+		$Timer2.start(3)
+		print("pistol")
+	elif Input.get_action_strength("change") and selectedGun == 0  and $Timer2.time_left==0:
+		selectedGun = 1
+		$Timer2.start(3)
+		print("laser")
 
 func _physics_process(delta):
 	velocity.y += gravity * delta

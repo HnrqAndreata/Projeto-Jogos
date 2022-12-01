@@ -10,9 +10,9 @@ func get_dano():
 	sprite.play("attack")
 	return dano
 	
-func rec_dmg():
+func rec_dmg(val):
 	$AnimationPlayer.play("HitAnim")
-	hp = hp - 1
+	hp = hp - val
 	if(hp < 1):
 		self.queue_free()
 	

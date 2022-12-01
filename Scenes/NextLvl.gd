@@ -9,6 +9,7 @@ export (int) var speed = 5
 
 
 func _ready() -> void:
+	print("entrefase")
 	$GUI/Retry.bbcode_text = "[wave amp=50 freq=5][color=#fff500]NEXT LEVEL[/color][/wave]"
 	
 
